@@ -1,0 +1,95 @@
+{% extends 'admin/admin_base.html' %}
+
+{% block content %}
+<style>
+.arrowDown{
+    outline: none;
+    padding: 10px;
+    font-size: 14.5px;
+    color: #212121;
+    width: 100%;
+    letter-spacing: 1px;
+    border: none;
+    background: rgba(34, 188, 255, 0.04);
+    border-left: 3px solid #22bcff;
+    box-shadow: -7px 7px 10px rgba(0, 0, 0, 0.12);
+}
+.sups{
+    font-size: 14.5px;
+    border-left: 3px solid #22bcff;   
+}
+</style>
+
+<div class="contact">
+    <div class="container">
+    <h4 class="tittles-w3agileits">Contact <span>U</span>s</h4>
+        <div class="col-md-4 wthree_contact_left">
+            <h6>add staff</h6>
+            <p class="para-w3-agile">Lorem ipsum <span>Household Laundry</span> dolor sit amet 
+                <span>Dry Cleaning</span> interdum sed aliquet quis.</p>
+            <div class="info-img-agileits">
+                <div class="info1"></div>
+                <div class="info2"></div>
+                <div class="info3"></div>
+                <div class="clearfix"> </div>
+            </div>
+            <h6>Servicing Hours</h6>
+            <ul>
+                <li><span>Monday-Friday</span> 9:00 am - 10:00 pm </li>
+                <li><span>Saturday & Sunday</span> 9:00 am - 12:00 pm</li>
+            </ul>
+        </div>
+        <div class="col-md-8 wthree_contact_left">
+            <h6>Send us an Email</h6>
+            <form action="#" method="post">
+                {% csrf_token %}
+                
+                    <div class="col-md-6 wthree_contact_left_grid">
+                        <input type="text" name="name" placeholder="Name" required="">  
+                        
+                    </div>
+
+                   
+                    <div class="col-md-6 wthree_contact_left_grid">
+                        <input type="number" class="arrowDown" name="age" placeholder="Age" required="">
+                        </div>
+                        <div class="col-md-6 wthree_contact_left_grid">
+                        <select class="arrowDown">
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                      
+                    <div class="col-md-6 wthree_contact_left_grid">
+                        <input type="text" name="parent" placeholder="Parent Name" required="">                       
+                    </div>
+
+                    <div class="col-md-6 wthree_contact_left_grid">
+             
+                        <input type="text" name="email" placeholder="Email" required="">
+                        
+                    </div>
+                    <div class="col-md-6 wthree_contact_left_grid">
+                        <input type="text" name="phno" placeholder="Phone number" required="">
+                    </div>
+                    <div class="col-md-6 wthree_contact_left_grid">                   
+                        <input type="number" class="arrowDown" name="adno" placeholder="Admission number" required="">
+                                                
+                    </div>                   
+
+                    <textarea name="address" class="sups" placeholder="Address" required=""></textarea>
+                           
+                    <input type="submit" value="Submit" name="submit">
+                    <input type="reset" value="Clear" name="clear">
+                </form>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<div class="map-agileits">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100940.22729225444!2d-122.5076400483969!3d37.75763782704338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085878f7a47d775%3A0x340c07c56f992a38!2sBeach+Wash!5e0!3m2!1sen!2sin!4v1499246275767"></iframe>
+</div>
+
+    
+{% endblock %}

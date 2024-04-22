@@ -1,0 +1,100 @@
+{% extends 'admin/admin_base.html' %}
+
+{% block content %}
+<style>
+.arrowDown{
+    outline: none;
+    padding: 10px;
+    font-size: 14.5px;
+    color: #212121;
+    width: 100%;
+    letter-spacing: 1px;
+    border: none;
+    background: rgba(34, 188, 255, 0.04);
+    border-left: 3px solid #22bcff;
+    box-shadow: -7px 7px 10px rgba(0, 0, 0, 0.12);
+}
+.sups{
+    font-size: 14.5px;
+    border-left: 3px solid #22bcff;
+   
+}
+
+
+</style>
+
+ <!--<div class="contact">
+    <div class="container">
+    <h4 class="tittles-w3agileits">Contact <span>U</span>s</h4>
+        <div class="col-md-4 wthree_contact_left">
+            <h6>About Us</h6>
+            <p class="para-w3-agile">Lorem ipsum <span>Household Laundry</span> dolor sit amet 
+                <span>Dry Cleaning</span> interdum sed aliquet quis.</p>
+            <div class="info-img-agileits">
+                <div class="info1"></div>
+                <div class="info2"></div>
+                <div class="info3"></div>
+                <div class="clearfix"> </div>
+            </div>
+            <h6>Servicing Hours</h6>
+            <ul>
+                <li><span>Monday-Friday</span> 9:00 am - 10:00 pm </li>
+                <li><span>Saturday & Sunday</span> 9:00 am - 12:00 pm</li>
+            </ul>-->
+        </div>
+      <!--  <div class="col-md-8 wthree_contact_left">
+            <h6>Send us an Email</h6>-->
+
+            <form action="#" method="post">
+               <center> <h2>TEACHERS REGISTRATION</h2></center>
+                {% csrf_token %}
+                {% if msg %}
+                <script>alert("{{msg}}")</script>
+                {% endif %}
+                 <center>
+                 <table>
+                     
+                <tr><td><label class="col-form-label">Name of teacher</label></td><td>
+                        <input type="text"  class="arrowDown" name="name" placeholder="Name" required="">  
+                  </td></tr>      
+                  <tr><td><label class="col-form-label">Age</label></td><td>    
+                  <input type="number" class="arrowDown" name="age" placeholder="Age" required="">
+                   </td></tr>    
+                   <tr><td><label class="col-form-label">Gender</label></td><td>     
+                        <select class="arrowDown" name="gender">
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Other</option>
+                        </select>
+                        </td></tr>
+                        <tr><td><label class="col-form-label">Name of teaching Subject</label></td><td> 
+                  
+                        <input type="text"  class="arrowDown" name="course" placeholder="subject" required="">                       
+                        </td></tr>
+                        <tr><td><label class="col-form-label">Email id for communicaion</label></td><td> 
+                        <input type="text" class="arrowDown" name="email" placeholder="Email" required="">
+                         </td></tr>
+                         <tr><td><label class="col-form-label">Phone number</label></td><td> 
+                         <input type="text"  class="arrowDown" name="phno" placeholder="Phone number" pattern="[6-9]{1}[0-9]{9}" title="enter 10 valid number" required="">
+                        </td></tr>
+                        <tr><td><label class="col-form-label">Password for entering mark details</label></td><td> 
+                        <input type="password" class="arrowDown" name="password" placeholder="Password" required="">
+                        </td></tr>
+                        <tr><td><label class="col-form-label">Address</label></td><td>         
+                          <textarea name="address" class="sups" placeholder="Address" required=""></textarea>
+                         </td></tr>  
+                         <tr><td><input type="submit" value="Submit" name="submit"></td>
+                   <td> <input type="reset" value="reset" name="reset"></td></tr>
+                    </table>
+                </form>
+                </center>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+    <!--<div class="map-agileits">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100940.22729225444!2d-122.5076400483969!3d37.75763782704338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085878f7a47d775%3A0x340c07c56f992a38!2sBeach+Wash!5e0!3m2!1sen!2sin!4v1499246275767"></iframe>
+</div>-->
+
+    
+{% endblock %}

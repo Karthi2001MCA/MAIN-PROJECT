@@ -1,0 +1,35 @@
+{% extends 'admin/admin_base.html' %}
+
+{% block content %}
+<div class="bs-docs-example wow fadeInUp animated" data-wow-delay=".5s">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+             <th>Admision No</th>
+              <th>Name</th>
+              <th>class</th>
+              <th>Parent</th>
+              <th>Email</th>
+              <th>Phno</th>
+              
+              <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in data %}
+            <tr>
+                <td>{{d.8}}</td>
+              <td>{{d.1}}</td>
+              <td>{{d.2}}</td>
+              <td>{{d.5}}</td>
+              <td>{{d.6}}</td>
+              <td>{{d.7}}</td>
+              
+              <td>{{d.9}}</td>
+            </tr>
+            {% endfor %}
+           
+        </tbody>
+    </table>
+</div>
+{% endblock %}

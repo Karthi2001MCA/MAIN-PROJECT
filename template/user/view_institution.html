@@ -1,0 +1,24 @@
+{% extends 'user/sponser_base.html' %}
+
+{% block content %}
+<center>
+<div class="bs-docs-example wow fadeInUp animated" data-wow-delay=".5s">
+    <form action="" method="post">
+        {% csrf_token %}
+       
+    </form>
+    {% if data %}
+    <table class="table">
+        <tr>
+            <td>ID</td><td>Name</td><td>Phone</td><td>School</td><td>AccountNO</td><td>Branch</td><td>IFSC</td>
+        </tr>
+        {% for d in data %}
+        <tr>
+            <td>{{d.0}}</td> <td>{{d.1}}</td> <td>{{d.2}}</td><td>{{d.3}}</td> <td>{{d.4}}</td> <td>{{d.5}}</td> <td>{{d.6}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+</center>
+{% endblock %}

@@ -1,0 +1,245 @@
+{% extends 'public/public_base.html' %}
+
+{% block content %}
+
+
+<style>
+    .arrowDown{
+        outline: none;
+        padding: 10px;
+        font-size: 14.5px;
+        color: #212121;
+        width: 100%;
+        letter-spacing: 1px;
+        border: none;
+        background: rgba(34, 188, 255, 0.04);
+        border-left: 3px solid #22bcff;
+        box-shadow: -7px 7px 10px rgba(0, 0, 0, 0.12);
+    }
+    .sups{
+        font-size: 14.5px;
+        border-left: 3px solid #22bcff;
+       
+    }
+    .bb{
+    
+    font-size: 14px;
+    width: 100px;
+    height: 50px;
+    color: #fff;
+    outline: none;
+    
+    border: none;
+    background: #22bcff;
+}
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  /* float: left; */
+  width: 400px;
+  
+}
+div.gallerymark {
+  margin: 5px;
+  border: 1px solid #ccc;
+  display: inline-block;
+ 
+  /* float: left; */
+  width: 400px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+</style>
+
+    <center>
+  <form method="POST">
+    {% csrf_token %}
+    <select name="dist">
+      <option>---SELECT---</option>
+      <option>Idukki</option>
+      <option>Ernakulam</option>
+      <option>Alapuzha</option>
+      <option>Kollam</option>
+      <option>Kottayam</option>
+      <option>Malapuram</option>
+      <option>Pathanumthitta</option>
+      <option>Kannur</option>
+      <option>Kozhikude</option>
+      <option>Thrissur</option>
+      <option>Wayanad</option>
+      <option>Thrivathapuram</option>
+      <option>Kasarakode</option>
+      <option>Palakkad</option>
+  </select> 
+  <input type="submit" name="submit" value="submit">
+  </form>
+
+{% if data %}
+{% for d in data %}
+<div class="gallerymark">
+    <img src="/static{{d.6}}" style="width: 400px;height: 400px;" alt="" class="img-r">
+    <h1>{{d.3}}</h1>
+    <div> 
+        <table>
+            <tr><td>Principal</td><td>  ::{{d.1}}</td></tr>
+            <tr><td>Phone</td><td>  ::{{d.2}}</td></tr>
+            <tr style="text-align: center;"><td colspan="2"><a href="/view_school/?id={{d.3}}">ViewMore</a></td></tr>
+        </table>
+        
+        
+    </div>    
+  </div> 
+  {% endfor %}
+{% endif %}
+
+{% if school_data %}
+<div class="gallery">
+    <a href="/view_school/?data=hostel&adno={{school_data}}">
+        <img src="/static/media/hostel.jpg" style="width: 100 px;height: 100px;">
+    </a>
+    <div class="desc">HOSTEL DETAILS</div>    
+  </div>
+
+  <div class="gallery">
+    <a href="/view_school/?data=etc&adno={{school_data}}">
+        <img src="/static/media/etc.gif" style="width: 100 px;height: 100px;">
+    </a>
+    <div class="desc">EXTRA CURRICULAR ACTIVITIES</div>    
+  </div>
+ 
+  <div class="gallery">
+    <a href="/view_school/?data=fees&adno={{school_data}}" >
+        <img src="/static/media/fees.jpg" style="width: 100 px;height: 100px;">
+        
+    <div class="desc">FEES DETAILS</div>    
+  </div>
+  
+  <div class="gallery">
+    <a href="/view_school/?data=acheive&adno={{school_data}}">
+        <img src="/static/media/achiev.jpg" style="width: 100 px;height: 100px;">
+        
+    </a>
+    <div class="desc">ACHEIVEMENTS</div>    
+  </div>
+
+  <div class="gallery">
+    <a href="/view_school/?data=travel&adno={{school_data}}">
+        <img src="/static/media/travel.png" style="width: 100 px;height: 100px;">
+    </a>
+    <div class="desc">BUS ROUTE DETAILS</div>    
+  </div>
+  
+{% endif %}
+
+{% if hostel_data %}
+{% for d in hostel_data %}
+<div class="gallerymark">
+    <img src="/static{{d.4}}" style="width: 400px;height: 400px;" alt="" class="img-r">
+    <h1>{{d.3}}</h1>
+    <div> 
+        <table>
+            <tr><td>Rent</td><td>  ::{{d.1}}</td></tr>
+            <tr><td>Food</td><td>  ::{{d.2}}</td></tr>
+            
+        </table>
+        
+        
+    </div>    
+  </div> 
+  {% endfor %}
+{% endif %}
+{% if fee_data %}
+{% for d in fee_data %}
+<div class="gallerymark">
+    
+    
+    <div> 
+        <table>
+            <tr><td>Term</td><td>  ::{{d.2}}</td></tr>
+            <tr><td>amount</td><td>  ::{{d.1}}</td></tr>
+            
+        </table>
+        
+        
+    </div>    
+  </div> 
+  {% endfor %}
+{% endif %}
+
+{% if etc_data %}
+{% for d in etc_data %}
+<div class="gallerymark">
+    <img src="/static{{d.4}}" style="width: 400px;height: 400px;" alt="" class="img-r">
+    
+    <div> 
+        <table>
+            <tr><td>Item</td><td>  ::{{d.1}}</td></tr>
+            <tr><td>Description</td><td>  ::{{d.2}}</td></tr>
+            
+        </table>
+        
+        
+    </div>    
+  </div> 
+  {% endfor %}
+{% endif %}
+
+{% if travel_data %}
+{% for d in travel_data %}
+<div class="gallerymark">
+    <img src="/static{{d.4}}" style="width: 400px;height: 400px;" alt="" class="img-r">
+    
+    <div> 
+        <table>
+            <tr><td>Number of buses</td><td> :{{d.1}}</td></tr>
+            <tr><td>Route</td><td>  :{{d.2}}</td></tr>
+            <tr><td>Type</td><td> :{{d.3}}</td></tr>
+            
+        </table>
+        
+        
+    </div>    
+  </div> 
+  {% endfor %}
+{% endif %}
+
+
+{% if achieve_data %}
+{% for d in achieve_data %}
+<div class="gallerymark">
+
+    
+    <div> 
+        <table>
+            <tr><td>Subject</td><td>  ::{{d.1}}</td></tr>
+            <tr><td>Description</td><td>  ::{{d.2}}</td></tr>
+            
+            
+        </table>
+        
+        
+    </div>    
+  </div> 
+  {% endfor %}
+{% endif %}
+
+</center>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'admin/admin_base.html' %}
+
+{% block content %}
+<style>
+    .arrowDown{
+        outline: none;
+        padding: 10px;
+        font-size: 14.5px;
+        color: #212121;
+        width: 300px;
+        letter-spacing: 1px;
+        border: none;
+        background: rgba(34, 188, 255, 0.04);
+        border-left: 3px solid #22bcff;
+        box-shadow: -7px 7px 10px rgba(0, 0, 0, 0.12);
+    }
+    .sups{
+        font-size: 14.5px;
+        border-left: 3px solid #22bcff;
+       
+    }
+    .bb{
+        
+        font-size: 14px;
+        width: 100px;
+        height: 40px;
+        color: #fff;
+        outline: none;
+        
+        border: none;
+        background: #22bcff;
+    }
+    
+    </style>
+
+<div class="bs-docs-example wow fadeInUp animated" data-wow-delay=".5s">
+    <form method="post">
+        <center><h2>MARKLIST DETAILS</h2></center>
+        {% csrf_token %}
+        <center>
+            <tr><td><label class="col-form-label">Admission number</label></td><td>   
+    <input type="text" class="arrowDown" name="adno">
+    <input type="submit" class="bb">
+    </center>
+</form>
+{% if data %}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+             
+              <th>Name</th>
+              <th>Parent</th>              
+              <th>class</th>
+              <th>Email</th>
+              <th>Phno</th>              
+              <th>Term</th>
+              <th>Fees</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in data %}
+            <tr>
+              
+              <td>{{d.1}}</td>
+              <td>{{d.2}}</td>
+              <td>{{d.5}}</td>
+              <td>{{d.6}}</td>
+              <td>{{d.7}}</td>
+              
+              <td>{{d.12}}</td>
+              <td>{{d.11}}</td>
+            </tr>
+            {% endfor %}
+           
+        </tbody>
+    </table>
+    {% endif %}
+</div>
+{% endblock %}

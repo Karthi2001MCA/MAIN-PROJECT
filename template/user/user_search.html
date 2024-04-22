@@ -1,0 +1,154 @@
+{% extends 'user/user_base.html' %}
+
+{% block content %}
+<style>
+    .arrowDown{
+        outline: none;
+        padding: 10px;
+        font-size: 14.5px;
+        color: #212121;
+        width: 100%;
+        letter-spacing: 1px;
+        border: none;
+        background: rgba(34, 188, 255, 0.04);
+        border-left: 3px solid #22bcff;
+        box-shadow: -7px 7px 10px rgba(0, 0, 0, 0.12);
+    }
+    .sups{
+        font-size: 14.5px;
+        border-left: 3px solid #22bcff;
+       
+    }
+    .bb{
+    
+    font-size: 14px;
+    width: 100px;
+    height: 50px;
+    color: #fff;
+    outline: none;
+    
+    border: none;
+    background: #22bcff;
+}
+
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  /* float: left; */
+  width: 180px;
+}
+div.gallerymark {
+  margin: 5px;
+  border: 1px solid #ccc;
+ 
+  /* float: left; */
+  width: auto;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+</style>
+
+    <center>
+        <form method="POST">
+            {% csrf_token %}
+<table>
+    <tr><td>ADMISSION NUMBER</td><td><input type="text" class="arrowDown" name="adno" id=""></td></tr>
+    <tr><td>Phone number</td><td><input type="number" class="arrowDown" name="phno" id=""></td></tr>
+    <tr align="center"><td colspan="2"><input class="bb" type="submit" value="search"></td></tr>
+</table>
+
+
+{% if data %}
+<div class="gallery">
+    <a href="/user_search/?data=mark&adno={{data.8}}">
+      Marks
+    </a>
+    <div class="desc">Add a description of the image here</div>    
+  </div>
+
+  <div class="gallery">
+    <a href="/user_search/?data=fee&adno={{data.8}}">
+      Fees
+    </a>
+    <div class="desc">Add a description of the image here</div>    
+  </div>
+
+  <div class="gallery">
+    <a href="/user_search/?data=staff&adno={{data.8}}">
+      Staff
+    </a>
+    <div class="desc">Add a description of the image here</div>    
+  </div>
+{% endif %}
+
+{% if mark_data %}
+
+<div class="gallerymark">   
+      <table border="2">        
+          <tr><th>adno</th><th>Date</th><th>Exam</th><th>Maths</th><th>English</th><th>Malayalam</th><th>Social</th><th>Hindi</th><th>Science</th><th>Total</th><th>Grade</th></tr>
+          {% for i in mark_data %}
+          <tr><td>{{i.1}}</td><td>{{i.2}}</td><td>{{i.3}}</td><td>{{i.4}}</td><td>{{i.5}}</td><td>{{i.6}}</td><td>{{i.7}}</td><td>{{i.8}}</td><td>{{i.9}}</td><td>{{i.10}}</td><td>{{i.11}}</td></tr>
+          {% endfor %}
+      </table>
+    </a>       
+  </div>
+  
+{% endif %}
+
+{% if fee_data %}
+
+<div class="gallerymark">   
+      <table border="2">        
+          <tr><th>ADMISSION NUMBER</th><th>Term</th><th>Fees</th></tr>
+          {% for i in fee_data %}
+          <tr><td>{{i.1}}</td><td>{{i.2}}</td><td>{{i.3}}</td></tr>
+          {% endfor %}
+      </table>
+    </a>       
+  </div>
+  
+{% endif %}
+{% if staff_data %}
+
+<div class="gallerymark">   
+      <table border="2">        
+          <tr><th>Name</th><th>Course</th><th>Email</th><th>Phone</th></tr>
+          {% for i in staff_data %}
+          <tr><td>{{i.1}}</td><td>{{i.4}}</td><td>{{i.5}}</td><td>{{i.6}}</td></tr>
+          {% endfor %}
+      </table>
+    </a>       
+  </div>
+  
+{% endif %}
+
+
+
+</form>
+</center>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

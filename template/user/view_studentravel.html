@@ -1,0 +1,49 @@
+{% extends 'user/user_base.html' %}
+
+{% block content %}
+<center>
+<div class="bs-docs-example wow fadeInUp animated" data-wow-delay=".5s">
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="adno" id="">
+        <input type="submit" value="ok">
+    </form>
+    {% if data %}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+             <th>Admision No</th>
+             <th>Busno</th>
+              <th> Student name</th>
+              <th>Parent name</th>
+              <th>Address</th>
+              <th>class</th>
+              <th>location</th>
+              <th>fees</th>
+              <th>Phone number</th>
+              
+              
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in data %}
+            <tr>
+            <td>{{d.0}}</td>
+              <td>{{d.1}}</td>
+              <td>{{d.2}}</td>
+              <td>{{d.3}}</td>
+              <td>{{d.4}}</td>
+              <td>{{d.5}}</td>
+              <td>{{d.6}}</td>
+              <td>{{d.7}}</td>
+              <td>{{d.8}}</td>
+              
+            </tr>
+            {% endfor %}
+           
+        </tbody>
+    </table>
+    {% endif %}
+</div>
+</center>
+{% endblock %}

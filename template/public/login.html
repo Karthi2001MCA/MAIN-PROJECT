@@ -1,0 +1,71 @@
+{% extends 'public/public_base.html' %} 
+
+
+
+{% block content %}
+<style>
+.arrowDown{
+    outline: none;
+    padding: 10px;
+    font-size: 14.5px;
+    color: #212121;
+    width: 100%;
+    letter-spacing: 1px;
+    border: none;
+    background: rgba(34, 188, 255, 0.04);
+    border-left: 3px solid #22bcff;
+    
+    width: 200px;
+
+}
+.sub{
+    width: 10%;
+    font-size: 14px;
+    height: 60px;
+    color: rgb(255, 255, 255);
+    outline: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border: none;
+    background: #22bcff;
+    background-image:url("..static/home/images/4.jpg");
+    background-color:#22bcff;
+}
+</style>
+
+
+    <div>
+        <body style="">
+            <center>
+                
+                <h4 class="tittles-w3agileits">LOGIN YOUR ACCOUNT <span></span></h4>
+                
+            <form action="#" method="post">
+                {% csrf_token %}
+                <table>
+                     <tr><td> <label class="col-form-label">Username</label></td>         
+                      <td> <input type="text" class="arrowDown" name="uname" placeholder="username" required=""></td></tr>
+                     <tr><td> <label class="col-form-label">Password</label> </td>
+                         <td><input type="password" class="arrowDown" name="password" placeholder="password" required=""></td></tr>
+                         <br>
+                         </table>
+                        
+                    <input type="submit" class="arrowDown" value="LOGIN" name="submit" >
+                  
+                    <input type="reset" class="sub" value="CLEAR" name="clear">
+                </form>
+                
+            </center>
+            
+                {% if msg %}
+                <script>
+                alert('{{msg}}');
+                </script>
+                {% endif %}
+            
+            
+       
+        </div>
+        <br>
+        <br>
+    
+{% endblock %}

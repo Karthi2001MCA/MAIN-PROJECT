@@ -1,0 +1,106 @@
+{% extends 'staff/staff_base.html' %}
+
+
+{% block content %}
+<style>
+.arrowDown{
+    outline: none;
+    padding: 10px;
+    font-size: 14.5px;
+    color: #212121;
+    width: 50 px;
+    letter-spacing: 1px;
+    border: none;
+    background: rgba(34, 188, 255, 0.04);
+    border-left: 3px solid #22bcff;
+    
+    width: 200px;
+}
+.sub{
+    width: 100px;
+    font-size: 14px;
+    height: 40px;
+    color: #fff;
+    outline: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border: none;
+    background: #22bcff;
+}
+</style>
+                <center>
+                <h3 >MARKLIST</h3>
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    
+                    <table>
+                        <tr><td><label class="col-form-label">Admission number</label></td><td>
+                             <input type="text" class="arrowDown" placeholder="admission number" name="admission number" 
+                             required=""></td></tr>
+                       
+                       
+                  
+                   
+                        <tr><td> <label class="col-form-label">Exam Date</label></td><td>
+                        <input type="date" class="arrowDown" placeholder="eg:10-10-2010" name="exam date"
+                            required=""></td></tr>
+                            
+                            
+                            
+                               <tr><td> <label class="col-form-label">Exam</label></td><td>
+                               <select class="arrowDown" name="exam name" >
+                                <option>annual</option>
+                                <option>half exam</option>
+                                <option>Quarter</option>
+                                <option>Monthly</option>
+                            </select></td></tr>
+                        
+                          
+                  
+                      
+                     <tr><td> <label class="col-form-label">Maths</label></td><td>
+                        <input type="number"  class="arrowDown" placeholder="eg:50" name="maths"
+                            required=""></td></tr>
+                    
+                      
+                            <tr><td>  <label class="col-form-label">English</label></td><td>
+                        <input type="text" class="arrowDown" placeholder="eg:50" name="english"
+                            required=""></td></tr>
+                    
+                        
+                            <tr><td>  <label class="col-form-label">Malayalam</label></td><td>
+                        <input type="text" class="arrowDown" placeholder="eg:50" name="malayalam"
+                            required=""></td></tr>
+                    
+                       
+                     
+                            <tr><td>  <label class="col-form-label">Social</label></td><td>
+                        <input type="text" class="arrowDown" placeholder="eg:50" name="social"
+                            required=""></td></tr>
+                    
+                     
+                            <tr><td>  <label class="col-form-label">Hindi</label></td><td>
+                        <input type="text" class="arrowDown" placeholder="eg:50" name="hindi"
+                            required=""></td></tr>
+                    
+                    
+                        
+                            <tr><td><label class="col-form-label">Science</label></td><td>
+                        <input type="text" class="arrowDown" placeholder="eg:50" name="science"
+                            required=""></td></tr>
+                    
+                  
+                           
+                    
+                    
+                            <tr style="text-align: center;"><td colspan="2">  <button type="submit" class="btn button-style-w3">Submit</button>
+                    <button type="cancel" class="btn button-style-w3">Cancel</button></td></tr>
+                </table>
+            </center>
+                </form>
+            
+            <!-- //register -->
+        
+    
+    <!-- //inner banner -->
+
+    {% endblock %}

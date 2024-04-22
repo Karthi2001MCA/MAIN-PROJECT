@@ -1,0 +1,92 @@
+{% extends 'admin/admin_base.html' %}
+
+{% block content %}
+<style>
+.arrowDown{
+    outline: none;
+    padding: 10px;
+    font-size: 14.5px;
+    color: #212121;
+    width: 100%;
+    letter-spacing: 1px;
+    border: none;
+    background: rgba(34, 188, 255, 0.04);
+    border-left: 3px solid #22bcff;
+    box-shadow: -7px 7px 10px rgba(0, 0, 0, 0.12);
+}
+.sups{
+    font-size: 14.5px;
+    border-left: 3px solid #22bcff;
+   
+}
+.bb{
+    
+    font-size: 14px;
+    width: 100px;
+    height: 50px;
+    color: #fff;
+    outline: none;
+    
+    border: none;
+    background: #22bcff;
+}
+
+</style>
+
+<!-- 
+        {% if msg %}
+            <script>
+            alert({{msg}})
+            </script>
+            {% endif %} -->
+            <form action="#" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+<center>
+    <h3><u>EVENTS AND NEWS</u></h3>
+    <br>
+    <br>
+               <table>
+                   <tr>
+                       <td>Subject</td><td><input type="text" name="t1" id=""></td>
+                   </tr>
+                  
+                <tr>
+                    <td>Discribtion</td><td><input type="text" name="t3" id=""></td>
+                </tr>
+                <tr>
+                    <td>Image</td><td><input type="file" name="t4" id=""></td>
+                </tr>
+                <tr>
+                    <td>EndDate</td><td><input type="date" name="t5" id=""></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="SUBMIT">
+                    </td>
+                </tr>
+               </table>
+               <table>
+                   <tr>
+                       <td>ID</td><td>SUBJECT</td><td>DISCRIBTION</td><td>Image</td><td>DATE OF POST</td><td>END DATE</td>
+                   </tr>
+                   {% for d in data %}
+                   <tr>
+                       <td>{{d.0}}</td> <td>{{d.1}}</td> <td>{{d.2}}</td> <td><img src="../static{{d.3}}" width="100px" /></td> <td>{{d.4}}</td> <td>{{d.5}}</td>
+                   </tr>
+                   {% endfor %}
+               </table>
+                </center>
+                  
+                </form>
+      
+       
+<br>
+<br>
+<!-- <div class="map-agileits">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100940.22729225444!2d-122.5076400483969!3d37.75763782704338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085878f7a47d775%3A0x340c07c56f992a38!2sBeach+Wash!5e0!3m2!1sen!2sin!4v1499246275767"></iframe>
+</div> -->
+<div class="map-agileits"><div class="gmap_canvas"><iframe  id="gmap_canvas" src="https://maps.google.com/maps?q=ernalkulam&t=&z=13&ie=UTF8&iwloc=&output=embed" ></iframe><a href="https://www.instazilla.net"></a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}</style></div>
+
+    
+{% endblock %}

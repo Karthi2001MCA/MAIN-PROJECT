@@ -1,0 +1,98 @@
+{% extends 'staff/staff_base.html' %}
+
+{% block content %}
+<style>
+.arrowDown{
+    outline: none;
+    padding: 10px;
+    font-size: 14.5px;
+    color: #212121;
+    width: 100%;
+    letter-spacing: 1px;
+    border: none;
+    background: rgba(34, 188, 255, 0.04);
+    border-left: 3px solid #22bcff;
+    box-shadow: -7px 7px 10px rgba(0, 0, 0, 0.12);
+}
+.sups{
+    font-size: 14.5px;
+    border-left: 3px solid #22bcff;
+   
+}
+
+
+</style>
+
+ <!--<div class="contact">
+    <div class="container">
+    <h4 class="tittles-w3agileits">Contact <span>U</span>s</h4>
+        <div class="col-md-4 wthree_contact_left">
+            <h6>About Us</h6>
+           <p class="para-w3-agile">Educare is an online application  <span>best for seaching </span> CBSC school.
+                <span>Best school</span> makes the children to grow in a good behaviour</p>
+            <div class="info-img-agileits">
+                <div class="info1"></div>
+                <div class="info2"></div>
+                <div class="info3"></div>
+                <div class="clearfix"> </div>
+            </div>-->
+            <h6></h6>
+            <ul>
+               <!-- <li><span>Monday-Friday</span> 9:00 am - 10:00 pm </li>
+                <li><span>Saturday & Sunday</span> 9:00 am - 12:00 pm</li>-->
+            </ul>
+        </div>
+        <div class="col-md-8 wthree_contact_left">
+           
+            <form action="#" method="post">
+               <center><h2>TRAVELING REGISTRATION OF STUDENTS</h2></center>
+                {% csrf_token %}
+                <center>
+                <table>
+                    <tr><td><label class="col-form-label">Admission number</label></td><td>
+                     <input type="number" class="arrowDown" name="adno" placeholder="Admission number" required="">
+                     </td></tr> 
+                     <tr><td><label class="col-form-label">Bus number</label></td><td>
+                        <input type="number" class="arrowDown" name="busno" placeholder="Admission number" required="">
+                        </td></tr>                               
+                     <tr><td><label class="col-form-label">Student name</label></td><td>
+                        <input type="text"  class="arrowDown" name="name" placeholder="Name" required=""> </div>
+                     </td> </tr>
+                     <tr><td><label class="col-form-label">Parent name or Guardian name</label></td><td>
+                        <input type="text"  class="arrowDown" name="parent" placeholder="Parent Name" required="">                       
+                     </td></tr>
+                     <tr><td><label class="col-form-label">Address</label></td><td>         
+                        <textarea name="address" class="sups" placeholder="Address" required=""></textarea>
+                       </td></tr>
+                      <tr><td><label class="col-form-label">Class & Division</label></td><td>
+                            <input type="text" class="arrowDown" name="clas" placeholder="class" required="">                       
+                        </td></tr>
+                        <tr><td><label class="col-form-label">Location</label></td><td>
+                            <input type="text" class="arrowDown" name="location" placeholder="location" required="">                       
+                        </td></tr>
+                        <tr><td><label class="col-form-label">Fees</label></td><td>                
+                            <input type="number" name="fees" placeholder="Fees" required="">
+                            </td></tr>
+                        
+                       <tr><td><label class="col-form-label">Phone number</label></td><td>
+                        <input type="text" name="phno" placeholder="Phone number" required="">
+                    </td></tr>
+                   
+                    <tr><td>
+                           
+                    <input type="submit" value="Submit" name="submit"></td><td>
+                  <input type="reset" value="Clear" name="clear"></td></tr>
+                    </center>
+                </form>
+                </table>
+                </div>
+        </div>
+       <!--<div class="clearfix"> </div>-->
+    </div>
+</div>
+   <!--<div class="map-agileits">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100940.22729225444!2d-122.5076400483969!3d37.75763782704338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085878f7a47d775%3A0x340c07c56f992a38!2sBeach+Wash!5e0!3m2!1sen!2sin!4v1499246275767"></iframe>
+</div>-->
+
+    
+{% endblock %}
